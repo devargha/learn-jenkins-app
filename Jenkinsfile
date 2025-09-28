@@ -19,8 +19,9 @@ pipeline {
                     npm run build
                     ls -al
                 '''
-            }
-            stage('test the app'){
+            }    
+        }
+        stage('test the app'){
                 steps{
                     sh '''
                         test -f build/index.html
@@ -28,6 +29,5 @@ pipeline {
                     '''
                 }
             }
-        }
     }
 }
