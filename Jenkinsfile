@@ -3,10 +3,21 @@ pipeline {
     agent any
 
     stages {
-        stage('without docker') {
-            steps {
+        stage('build the app - npm run build') {
+            agent{
+                docker{
+                    image 'node:18-alpine'
+                    reuseNode true
+                }
+            }
+            steps{
                 sh '''
-                    echo "hello bbg from the learn-jenkins-app folder inside codespaces"
+                    ls -al
+                    node --version
+                    npm --version
+                    npm ci
+                    npm run build
+                    ls -al
                 '''
             }
         }
