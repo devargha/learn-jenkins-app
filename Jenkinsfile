@@ -5,7 +5,9 @@ pipeline {
     stages {
         stage('without docker') {
             steps {
-                sh 'echo "Hello from Jenkins - written in Jenkins file inside Git Codespaces."'
+                sh '''
+                    echo "hello bbg from the learn-jenkins-app folder inside codespaces"
+                '''
             }
         }
     }
