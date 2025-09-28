@@ -20,6 +20,12 @@ pipeline {
                     ls -al
                 '''
             }
+            stage('test the app'){
+                sh '''
+                    test -f build/index.html
+                    echo "all works well"
+                '''
+            }
         }
     }
 }
